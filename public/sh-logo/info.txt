@@ -1,0 +1,15 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Paprika-Regular
+font link: https://fonts.google.com/specimen/Paprika
+font author: Eduardo Tunni
+font author site: http://www.tipo.net.ar/
+
+
+
+fontColor: {"hex":"#F6FFF9"}
+bgColor: {"hex":"#012C0D"}
+
+
+      

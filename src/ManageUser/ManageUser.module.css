@@ -1,0 +1,44 @@
+#admin{
+    background-color: #dad5d52c;
+    height: 100vh;
+    position: relative;
+}
+.title{
+    /* margin-top: 5rem; */
+    /* position: absolute;s */
+    margin-left: 12%;
+    font-family: serif;
+    color: #f3005d;
+}
+.userSummary{
+    color: #000009ce;
+    font-weight: 500;
+}
+.boxOne{
+    height:60px;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+}
+.boxTwo{
+    height:60px;
+    padding: 1rem 2rem;
+      border-radius: 0.75rem;
+    background-color: #fff;
+}
+.boxThree{
+    height:60px;
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+.boxFour{
+    height:60px;
+    padding: 1rem 2rem;
+      border-radius: 0.75rem;
+    background-color: #fff;
+}
+.icon{
+    color: #006838;
+    background-color: #07a55b60;
+    margin-right: 10px;
+}

@@ -1,0 +1,91 @@
+#dashboard{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+#colLeft{
+    background: #a7dad31c;
+ }
+#logo{
+    background-color: #f3005d;
+    padding: 16px;
+    font-family: serif;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #fff;
+}
+#logo:hover{
+    background: #006838;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    color: #fff;
+}
+
+#logo{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+#admin{
+    background: #006838;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 10px;
+}
+#products, #settings, #help{
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+#products:hover{
+    background: #006838;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+    color: #fff;
+}
+#settings:hover{
+    background: #006838;
+    transition: all 0.5s ease;
+    color: #fff;
+    border-radius: 10px;
+}
+#help:hover{
+    background: #006838;
+    color: #fff;
+    transition: all 0.5s ease;
+     border-radius: 10px;
+}
+ul {
+    padding-left: 0rem;
+}
+
+
+span{
+    margin-left: 10px;
+}
+.list{
+    list-style: none;
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+}
+#manage{
+    border-radius: 10px;
+    color: #0000008a;
+    font-size: 1.2rem;
+}
+.user{
+    font-size: 1rem;
+    color: #666666bd;
+}
+.one{
+    border: none;
+    background-color: #FF514F;
+    border-radius: 5px;
+    padding:0.75rem;
+    color: #fff;
+ }
+small{
+     font-size: 0.75rem;
+ }
