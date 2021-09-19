@@ -57,6 +57,20 @@ function App() {
 
                 </div>
               </Link>
+              <Link to="/dashboard/manage-user">
+                <div className="d-flex align-items-center pt-4" id={style.Groups}>
+                  <button className={style.two}>02</button>
+                  <span className={style.user}>Manage Groups<br /> <small>let's you manage user</small></span>
+
+                </div>
+              </Link>
+              <Link to="/dashboard/manage-user">
+                <div className="d-flex align-items-center pt-4" id={style.roles}>
+                  <button className={style.three}>03</button>
+                  <span className={style.user}>Manage Roles<br /> <small>let's you manage user</small></span>
+
+                </div>
+              </Link>
             </ul>
           </div>
         </div>

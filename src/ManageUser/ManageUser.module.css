@@ -26,6 +26,7 @@
       border-radius: 0.75rem;
     background-color: #fff;
 }
+
 .boxThree{
     height:60px;
     padding: 1rem 2rem;
@@ -41,4 +42,29 @@
     color: #006838;
     background-color: #07a55b60;
     margin-right: 10px;
+}
+.buttonOne,.button, .add{
+    border: 1px solid #07a55b60;
+    font-weight: 300;
+    padding: 0.75em 1.3em;
+    color: #006838;
+
+}
+.CSV,.PDF, .ADD{
+    margin-right: 0.75em;
+    background: none;
+}
+.buttonOne{
+    margin-right: 1.5rem;
+}
+.user{
+    border: 1px solid #006838;
+    color: #006838;
+    padding: 0.75em 1.3em;
+   text-align: center;
+    justify-items:center;
+}
+.form-control{
+    color: #006838;
+    border: 1px solid #07a55b60 !important;
 }

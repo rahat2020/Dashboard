@@ -1,11 +1,9 @@
 #dashboard{
     height: 100vh;
-    width: 100%;
-    overflow: hidden;
+    width: 100vw;
+    /* overflow: hidden; */
 }
-#colLeft{
-    background: #a7dad31c;
- }
+
 #logo{
     background-color: #f3005d;
     padding: 16px;
@@ -73,7 +71,7 @@ a{
 #manage{
     border-radius: 10px;
     color: #0000008a;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 .user{
     font-size: 1rem;
@@ -82,6 +80,13 @@ a{
 .one{
     border: none;
     background-color: #FF514F;
+    border-radius: 5px;
+    padding:0.75rem;
+    color: #fff;
+ }
+ .two, .three{
+    border: none;
+    background-color: #16be70;
     border-radius: 5px;
     padding:0.75rem;
     color: #fff;
