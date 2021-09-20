@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import style from './ManageUser.module.css';
+import style from './ManageGroup.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons'
-export default function ManageUser() {
-    const [addUser, setAdduser] = useState(true)
-    const [uploadUser, setUploadUser] = useState({
+export default function ManageGroup() {
+    const [addGroup, setAddgroup] = useState(true)
+    const [uploadGroup, setUploadGroup] = useState({
         name: '',
-        username: '',
-        email: '',
+        date: '',
+        description: '',
     })
     const [showUser, setShowUser] = useState([])
     // const [dltUser, setDltUser] = useState([])
 
     const handleChange = (event) => {
         console.log(event.target.name, event.target.value);
-        const newData = { ...uploadUser }
+        const newData = { ...uploadGroup }
         newData[event.target.name] = event.target.value;
-        setUploadUser(newData);
+        setUploadGroup(newData);
 
     }
 
-    const handleAddUser = e => {
+    const handleAddGroup = e => {
         // e.preventDefault(true);
-        if (uploadUser !== '') {
+        if (uploadGroup !== '') {
             // console.log(service)
-            const url = `http://localhost:5000/addUser`
+            const url = `http://localhost:5000/addGroup`
             console.log(url)
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(uploadUser)
+                body: JSON.stringify(uploadGroup)
             })
                 .then(response => response.json())
                 .then(data => {
@@ -43,15 +43,15 @@ export default function ManageUser() {
     };
 
     useEffect(() => {
-        const url = 'http://localhost:5000/showUser'
+        const url = 'http://localhost:5000/showGroup'
         fetch(url)
             .then(response => response.json())
             .then(data => setShowUser(data))
     }, [])
 
     // delete user from userCollection
-    const handleDeleteUser = (_id) => {
-        fetch(`http://localhost:5000/deleteUser/${_id}`, {
+    const handleDeleteGroup = (_id) => {
+        fetch(`http://localhost:5000/deleteGroup/${_id}`, {
             method: 'DELETE'
         })
             .then(res => {
@@ -72,7 +72,7 @@ export default function ManageUser() {
             <p className={style.userSummary}>Summary</p>
 
             {
-                addUser ?
+                addGroup ?
                     " "
                     :
                     <div className="container pt-4 mb-5">
@@ -81,10 +81,10 @@ export default function ManageUser() {
                                 <input type="text" name="name" class="form-control" id="inputName" onBlur={handleChange} placeholder="Name" required />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="username" class="form-control" id="inputUserName" onBlur={handleChange} placeholder="Username" required />
+                                <input type="text" name="date" class="form-control" id="inputUserName" onBlur={handleChange} placeholder="Create date" required />
                             </div>
                             <div class="col-12">
-                                <input type="text" name="email" class="form-control" id="inputEmail" onBlur={handleChange} placeholder="Email" required />
+                                <input type="text" name="description" class="form-control" id="inputEmail" onBlur={handleChange} placeholder="description" required />
                             </div>
                             <div class="col-12">
                                 <div class="form-check">
@@ -95,7 +95,7 @@ export default function ManageUser() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" onClick={handleAddUser} className={style.user}>Upload</button>
+                                <button type="submit" onClick={handleAddGroup} className={style.user}>Upload</button>
                             </div>
                         </form>
                     </div>
@@ -123,40 +123,38 @@ export default function ManageUser() {
 
 
                 <div className="ms-auto">
-                    <button className={style.add} onClick={() => setAdduser((user) => !user)}>
+                    <button className={style.add} onClick={() => setAddgroup((user) => !user)}>
                         <FontAwesomeIcon icon={faPlusCircle} className={style.ADD} />
                         {
-                            addUser ? <span> Add User</span> : <span> Don't Add</span>
+                            addGroup ? <span> Add Group</span> : <span> Don't Add</span>
                         }
                     </button>
                 </div>
             </div>
 
             {
-                showUser.map((user) => (
+                showUser.map((group) => (
                     <div className="pt-4" id={style.table}>
                         <table class="table">
                             <thead className={style.tableHead}> 
                                 <tr className={style.tableRow}>
-                                    <th scope="col">User ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">U.Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">C.date</th>
+                                    <th scope="col">Group ID</th>
+                                    <th scope="col">Group name</th>
+                                    <th scope="col">Group description</th>
+                                    <th scope="col">C. Date</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className={style.tableData}>
                                 <tr>
 
-                                    <td>{user._id}</td>
-                                    <td>{user.name}</td>
-                                    <td>@{user.username}</td>
-                                    <td>{user.email}</td>
+                                    <td>{group._id}</td>
+                                    <td>{group.name}</td>
+                                    <td>{group.description}</td>
                                     <td>12/12/21</td>
                                     <td className="d-flex justify-center-end">
                                         <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit}/>edit </span>
-                                        <span onClick={() =>handleDeleteUser(user._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete}/>delete
+                                        <span onClick={() =>handleDeleteGroup(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete}/>delete
                                         </span>
                                     </td>
                                 </tr>

@@ -6,14 +6,14 @@ import RouteDiv from './RouteDiv/RouteDiv';
 function App() {
   let { url } = useRouteMatch();
   return (
-    <section className="" id={style.dashboard}>
+    <section className="container" id={style.dashboard}>
       <div className="row">
         <div className="col-md-3" id={style.colLeft}>
-          <div className="container">
+          <div className="">
             <Link to="/dashboard/manage-user"> <h3 id={style.logo}>shopKpr</h3></Link>
           </div>
 
-          <div className="container mt-4 pt-4">
+          <div className=" mt-4 pt-4">
             <ul className={style.list}>
               <li>
                 <Link to={`${url}/manage-user`}>
@@ -57,17 +57,17 @@ function App() {
 
                 </div>
               </Link>
-              <Link to="/dashboard/manage-user">
+              <Link to="/dashboard/manage-group">
                 <div className="d-flex align-items-center pt-4" id={style.Groups}>
                   <button className={style.two}>02</button>
-                  <span className={style.user}>Manage Groups<br /> <small>let's you manage user</small></span>
+                  <span className={style.user}>Manage Groups<br /> <small>let's you manage group</small></span>
 
                 </div>
               </Link>
-              <Link to="/dashboard/manage-user">
+              <Link to="/dashboard/manage-role">
                 <div className="d-flex align-items-center pt-4" id={style.roles}>
                   <button className={style.three}>03</button>
-                  <span className={style.user}>Manage Roles<br /> <small>let's you manage user</small></span>
+                  <span className={style.user}>Manage Roles<br /> <small>let's you manage role</small></span>
 
                 </div>
               </Link>
