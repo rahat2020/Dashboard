@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import style from './ManageUser.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons'
+import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
+
 export default function ManageUser() {
     const [addUser, setAdduser] = useState(true)
+    const [showUser, setShowUser] = useState([])
+    // const [path, setPath] = useState("")
     const [uploadUser, setUploadUser] = useState({
         name: '',
         username: '',
         email: '',
     })
-    const [showUser, setShowUser] = useState([])
-    // const [dltUser, setDltUser] = useState([])
 
     const handleChange = (event) => {
         console.log(event.target.name, event.target.value);
@@ -66,8 +67,9 @@ export default function ManageUser() {
   
     return (
         <div className="container mb-5" id={style.admin}>
-            <div className={style.title}>
-                <h1 className="text-center pt-4">Welcome to Admin</h1>
+            <div className="pt-4 d-flex justify-content-between" id={style.title}>
+               <p><span className={style.adminTitle}>Dashboard </span>//<span className={style.adminTitle}>Admin</span> </p>
+               <button className={style.adminButton}>:)Dashboard</button>
             </div>
             <p className={style.userSummary}>Summary</p>
 
@@ -115,7 +117,7 @@ export default function ManageUser() {
                     <p><FontAwesomeIcon icon={faPlusCircle} className={style.icon} />Roles</p>
                 </div>
             </div>
-            <div className="d-flex mt-4 container" >
+            <div className="d-flex mt-4 container mb-3" >
                 <div className="d-flex" id={style.left}>
                     <button className={style.buttonOne}><FontAwesomeIcon icon={faDownload} className={style.CSV} />Download CSV</button>
                     <button className={style.button}><FontAwesomeIcon icon={faDownload} className={style.PDF} />Download PDF</button>
@@ -134,16 +136,16 @@ export default function ManageUser() {
 
             {
                 showUser.map((user) => (
-                    <div className="pt-4" id={style.table}>
-                        <table class="table">
+                    <div className="" id={style.table}>
+                        <table class="table table-striped border-success">
                             <thead className={style.tableHead}> 
                                 <tr className={style.tableRow}>
-                                    <th scope="col">User ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">U.Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">C.date</th>
-                                    <th scope="col">Actions</th>
+                                    <th className="text-success" scope="col">User ID</th>
+                                    <th className="text-success"scope="col">U.Name</th>
+                                    <th className="text-success"scope="col">Email</th>
+                                    <th className="text-success"scope="col">Name</th>
+                                    <th className="text-success"scope="col">C.date</th>
+                                    <th className="text-success"scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className={style.tableData}>

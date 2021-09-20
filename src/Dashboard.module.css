@@ -5,19 +5,13 @@
 }
 
 #logo{
-    background-color: #f3005d;
     padding: 16px;
-    font-family: serif;
     letter-spacing: 2px;
     border-radius: 10px;
+    font-size: 2rem;
+    background-color: #bfe3d22b;
     font-weight: 600;
-    color: #fff;
-}
-#logo:hover{
-    background: #006838;
-    font-weight: 600;
-    transition: all 0.5s ease;
-    color: #fff;
+    color: #006838;
 }
 
 #logo{
@@ -68,6 +62,9 @@ span{
 a{
     text-decoration: none;
 }
+.rightTitle{
+    font-size: 12px;
+}
 #manage{
     border-radius: 10px;
     color: #0000008a;
@@ -77,14 +74,15 @@ a{
     font-size: 1rem;
     color: #666666bd;
 }
-.one{
+
+.redBtn{
     border: none;
     background-color: #FF514F;
     border-radius: 5px;
     padding:0.75rem;
     color: #fff;
  }
- .two, .three{
+ .greenBtn{
     border: none;
     background-color: #16be70;
     border-radius: 5px;

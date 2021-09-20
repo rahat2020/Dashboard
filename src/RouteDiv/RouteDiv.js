@@ -10,7 +10,7 @@ const RouteDiv = () => {
         <Route exact path={`${path}/manage-user`}>
           <ManageUser/>
         </Route>
-        <Route exact path={`${path}/manage-group`}>
+        <Route  path={`${path}/manage-group`}>
           <ManageGroup/>
         </Route>
       </Switch>

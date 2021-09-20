@@ -1,10 +1,12 @@
 import style from './Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers, faHeart, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import RouteDiv from './RouteDiv/RouteDiv';
 function App() {
   let { url } = useRouteMatch();
+  const location = useLocation()
+  console.log('path_16', location.pathname)
   return (
     <section className="container" id={style.dashboard}>
       <div className="row">
@@ -14,6 +16,7 @@ function App() {
           </div>
 
           <div className=" mt-4 pt-4">
+
             <ul className={style.list}>
               <li>
                 <Link to={`${url}/manage-user`}>
@@ -50,23 +53,23 @@ function App() {
         <div className="col-md-2" id={style.colRight}>
           <div className="rightBar">
             <ul>
+              <p className={style.rightTitle}>add,edit,delete, mange user</p>
               <Link to="/dashboard/manage-user">
                 <div className="d-flex align-items-center pt-4" id={style.manage}>
-                  <button className={style.one}>01</button>
+                  <button className={(location.pathname === '/dashboard/manage-user') ? style.redBtn : style.greenBtn}>01</button>
                   <span className={style.user}>Manage user<br /> <small>let's you manage user</small></span>
-
                 </div>
               </Link>
               <Link to="/dashboard/manage-group">
                 <div className="d-flex align-items-center pt-4" id={style.Groups}>
-                  <button className={style.two}>02</button>
+                  <button className={(location.pathname === '/dashboard/manage-group') ? style.redBtn : style.greenBtn}>02</button>
                   <span className={style.user}>Manage Groups<br /> <small>let's you manage group</small></span>
 
                 </div>
               </Link>
               <Link to="/dashboard/manage-role">
                 <div className="d-flex align-items-center pt-4" id={style.roles}>
-                  <button className={style.three}>03</button>
+                  <button className={(location.pathname === '/dashboard/manage-role') ? style.redBtn : style.greenBtn}>03</button>
                   <span className={style.user}>Manage Roles<br /> <small>let's you manage role</small></span>
 
                 </div>

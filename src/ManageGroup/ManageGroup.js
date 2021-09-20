@@ -63,11 +63,12 @@ export default function ManageGroup() {
 
         console.log('button is clcked')
     }
-  
+
     return (
         <div className="container mb-5" id={style.admin}>
-            <div className={style.title}>
-                <h1 className="text-center pt-4">Welcome to Admin</h1>
+            <div className="pt-4 d-flex justify-content-between" id={style.title}>
+                <p><span className={style.adminTitle}>Dashboard </span>//<span className={style.adminTitle}>Admin</span> </p>
+                <button className={style.adminButton}>:)Dashboard</button>
             </div>
             <p className={style.userSummary}>Summary</p>
 
@@ -101,9 +102,9 @@ export default function ManageGroup() {
                     </div>
             }
 
-            <div className="d-flex justify-content-evenly" >
+            <div className="d-flex justify-content-evenly">
                 <div className={style.boxOne}>
-                    <p><FontAwesomeIcon icon={faUserShield} className={style.icon}/> Admins</p>
+                    <p><FontAwesomeIcon icon={faUserShield} className={style.icon} /> Admins</p>
                 </div>
                 <div className={style.boxTwo}>
                     <p><FontAwesomeIcon icon={faUser} className={style.icon} /> User</p>
@@ -120,8 +121,6 @@ export default function ManageGroup() {
                     <button className={style.buttonOne}><FontAwesomeIcon icon={faDownload} className={style.CSV} />Download CSV</button>
                     <button className={style.button}><FontAwesomeIcon icon={faDownload} className={style.PDF} />Download PDF</button>
                 </div>
-
-
                 <div className="ms-auto">
                     <button className={style.add} onClick={() => setAddgroup((user) => !user)}>
                         <FontAwesomeIcon icon={faPlusCircle} className={style.ADD} />
@@ -136,10 +135,10 @@ export default function ManageGroup() {
                 showUser.map((group) => (
                     <div className="pt-4" id={style.table}>
                         <table class="table">
-                            <thead className={style.tableHead}> 
+                            <thead className={style.tableHead}>
                                 <tr className={style.tableRow}>
                                     <th scope="col">Group ID</th>
-                                    <th scope="col">Group name</th>
+                                    <th scope="col">G.name</th>
                                     <th scope="col">Group description</th>
                                     <th scope="col">C. Date</th>
                                     <th scope="col">Actions</th>
@@ -153,8 +152,8 @@ export default function ManageGroup() {
                                     <td>{group.description}</td>
                                     <td>12/12/21</td>
                                     <td className="d-flex justify-center-end">
-                                        <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit}/>edit </span>
-                                        <span onClick={() =>handleDeleteGroup(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete}/>delete
+                                        <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit} />edit </span>
+                                        <span onClick={() => handleDeleteGroup(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete
                                         </span>
                                     </td>
                                 </tr>

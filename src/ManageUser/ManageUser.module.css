@@ -3,12 +3,24 @@
     height: 100vh;
     position: relative;
 }
-.title{
-    /* margin-top: 5rem; */
-    /* position: absolute;s */
-    margin-left: 12%;
-    font-family: serif;
-    color: #006838;
+#title{
+    vertical-align: center;
+}
+
+.adminTitle{
+    padding-top: 10px;
+    font-size: 1em;
+    justify-items: center;
+    font-weight: 500;
+    color: #16c975;
+}
+.adminButton{
+    border: none;
+    border-radius:0.75em;
+    padding: 5px 10px;
+    color: #fffff9;
+    font-weight: 500;
+    background: #006838;
 }
 .userSummary{
     color: #000009ce;
@@ -46,7 +58,7 @@
 .buttonOne,.button, .add{
     border: 1px solid #07a55b60;
     font-weight: 300;
-    padding: 0.75em 1.3em;
+    padding: 8px 8px;
     color: #006838;
 
 }
