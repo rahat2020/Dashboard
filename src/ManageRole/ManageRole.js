@@ -166,7 +166,7 @@ export default function ManageRole() {
                                         <span className="d-flex" id={style.edit} onClick={() => setEdit((hey) => !hey)}>
                                             <FontAwesomeIcon icon={faPen} className={style.edit} />
                                             {
-                                                addAdmin ? <span>Edit?</span> : <span>No!</span>
+                                                edit ? <span>Edit?</span> : <span>No!</span>
                                             }
                                         </span>
                                         <span onClick={() => handleDeleteAdmin(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete

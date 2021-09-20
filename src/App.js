@@ -21,10 +21,6 @@ export default function App() {
                     >
                         
                     </Route>
-                    
-                    {/* <Route path="/dashboard/manage-user">
-                        <Home />
-                    </Route> */}
                     <Route path="/dashboard">
                         <Dashboard />
                     </Route>

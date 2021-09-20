@@ -25,19 +25,19 @@ function App() {
                     <span>Admin</span>
                   </div>
                 </Link>
-                <Link to="/manage-user">
+                <Link to="/dashboard/manage-user">
                   <div className="d-flex align-items-center" id={style.products}>
                     <FontAwesomeIcon icon={faHeart} className="side-icon" />
                     <span>Products</span>
                   </div>
                 </Link>
-                <Link to="/manage-user">
+                <Link to="/dashboard/manage-user">
                   <div className="d-flex align-items-center" id={style.settings}>
                     <FontAwesomeIcon icon={faCog} className="side-icon" />
                     <span>Settings</span>
                   </div>
                 </Link>
-                <Link to="/manage-user">
+                <Link to="/dashboard/manage-user">
                   <div className="d-flex align-items-center" id={style.help}>
                     <FontAwesomeIcon icon={faQuestionCircle} className="side-icon" />
                     <span>Help</span>

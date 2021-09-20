@@ -6,7 +6,7 @@ import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashA
 export default function ManageUser() {
     const [addUser, setAdduser] = useState(true)
     const [showUser, setShowUser] = useState([])
-    // const [path, setPath] = useState("")
+    const [edit, setEdit] = useState(true)
     const [uploadUser, setUploadUser] = useState({
         name: '',
         username: '',
@@ -64,12 +64,12 @@ export default function ManageUser() {
 
         console.log('button is clcked')
     }
-  
+
     return (
         <div className="container mb-5" id={style.admin}>
             <div className="pt-4 d-flex justify-content-between" id={style.title}>
-               <p><span className={style.adminTitle}>Dashboard </span>//<span className={style.adminTitle}>Admin</span> </p>
-               <button className={style.adminButton}>:)Dashboard</button>
+                <p><span className={style.adminTitle}>Dashboard </span>//<span className={style.adminTitle}>Admin</span> </p>
+                <button className={style.adminButton}>:)Dashboard</button>
             </div>
             <p className={style.userSummary}>Summary</p>
 
@@ -102,10 +102,19 @@ export default function ManageUser() {
                         </form>
                     </div>
             }
-
+            {
+                edit ?
+                    " "
+                    :
+                    <div class="container">
+                        <div class="toast-body text-success">
+                            Hey, You want edit?😄 But I didn't implement that! sorry😟'.
+                        </div>
+                    </div>
+            }
             <div className="d-flex justify-content-evenly" >
                 <div className={style.boxOne}>
-                    <p><FontAwesomeIcon icon={faUserShield} className={style.icon}/> Admins</p>
+                    <p><FontAwesomeIcon icon={faUserShield} className={style.icon} /> Admins</p>
                 </div>
                 <div className={style.boxTwo}>
                     <p><FontAwesomeIcon icon={faUser} className={style.icon} /> User</p>
@@ -138,14 +147,14 @@ export default function ManageUser() {
                 showUser.map((user) => (
                     <div className="" id={style.table}>
                         <table class="table table-striped border-success">
-                            <thead className={style.tableHead}> 
+                            <thead className={style.tableHead}>
                                 <tr className={style.tableRow}>
                                     <th className="text-success" scope="col">User ID</th>
-                                    <th className="text-success"scope="col">U.Name</th>
-                                    <th className="text-success"scope="col">Email</th>
-                                    <th className="text-success"scope="col">Name</th>
-                                    <th className="text-success"scope="col">C.date</th>
-                                    <th className="text-success"scope="col">Actions</th>
+                                    <th className="text-success" scope="col">U.Name</th>
+                                    <th className="text-success" scope="col">Email</th>
+                                    <th className="text-success" scope="col">Name</th>
+                                    <th className="text-success" scope="col">C.date</th>
+                                    <th className="text-success" scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className={style.tableData}>
@@ -157,8 +166,13 @@ export default function ManageUser() {
                                     <td>{user.email}</td>
                                     <td>12/12/21</td>
                                     <td className="d-flex justify-center-end">
-                                        <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit}/>edit </span>
-                                        <span onClick={() =>handleDeleteUser(user._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete}/>delete
+                                        <span className="d-flex" id={style.edit} onClick={() => setEdit((hey) => !hey)}>
+                                             <FontAwesomeIcon icon={faPen} className={style.edit} />
+                                             {
+                                                edit ? <span>Edit?</span> : <span>No!</span>
+                                            }
+                                        </span>
+                                        <span onClick={() => handleDeleteUser(user._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete
                                         </span>
                                     </td>
                                 </tr>

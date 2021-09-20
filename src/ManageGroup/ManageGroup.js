@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons'
 export default function ManageGroup() {
     const [addGroup, setAddgroup] = useState(true)
+    const [edit, setEdit] = useState(true)
     const [uploadGroup, setUploadGroup] = useState({
         name: '',
         date: '',
@@ -101,6 +102,16 @@ export default function ManageGroup() {
                         </form>
                     </div>
             }
+            {
+                edit ?
+                    " "
+                    :
+                    <div class="container">
+                        <div class="toast-body text-success">
+                            Hey, You want edit?😄 But I didn't implement that! sorry😟'.
+                        </div>
+                    </div>
+            }
 
             <div className="d-flex justify-content-evenly">
                 <div className={style.boxOne}>
@@ -141,7 +152,7 @@ export default function ManageGroup() {
                                     <th className="text-success" scope="col">G.name</th>
                                     <th className="text-success" scope="col">Group description</th>
                                     <th className="text-success" scope="col">C. Date</th>
-                                    <th className="text-success"scope="col">Actions</th>
+                                    <th className="text-success" scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className={style.tableData}>
@@ -151,8 +162,13 @@ export default function ManageGroup() {
                                     <td>{group.name}</td>
                                     <td>{group.description}</td>
                                     <td>12/12/21</td>
-                                    <td className="d-flex justify-center-end">
-                                        <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit} />edit </span>
+                                    <td className="d-flex justify-center-end" onClick={() => setEdit((hey) => !hey)}>
+                                        <span className="d-flex" id={style.edit}>
+                                            <FontAwesomeIcon icon={faPen} className={style.edit}/>
+                                            {
+                                                edit ? <span>Edit?</span> : <span>No!</span>
+                                            }
+                                        </span>
                                         <span onClick={() => handleDeleteGroup(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete
                                         </span>
                                     </td>
