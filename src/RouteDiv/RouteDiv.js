@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ManageGroup from "../ManageGroup/ManageGroup";
+import ManageRole from "../ManageRole/ManageRole";
 import ManageUser from "../ManageUser/ManageUser";
 const RouteDiv = () => {
   let { path } = useRouteMatch();
@@ -8,10 +9,13 @@ const RouteDiv = () => {
     <div>
       <Switch>
         <Route exact path={`${path}/manage-user`}>
-          <ManageUser/>
+          <ManageUser />
         </Route>
-        <Route  path={`${path}/manage-group`}>
-          <ManageGroup/>
+        <Route path={`${path}/manage-group`}>
+          <ManageGroup />
+        </Route>
+        <Route path={`${path}/manage-role`}>
+          <ManageRole />
         </Route>
       </Switch>
     </div>

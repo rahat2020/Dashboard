@@ -44,7 +44,7 @@ export default function ManageUser() {
     };
 
     useEffect(() => {
-        const url = 'http://localhost:5000/showUser'
+        const url = 'https://salty-sierra-05084.herokuapp.com/showUser'
         fetch(url)
             .then(response => response.json())
             .then(data => setShowUser(data))
@@ -52,7 +52,7 @@ export default function ManageUser() {
 
     // delete user from userCollection
     const handleDeleteUser = (_id) => {
-        fetch(`http://localhost:5000/deleteUser/${_id}`, {
+        fetch(`https://salty-sierra-05084.herokuapp.com/deleteUser/${_id}`, {
             method: 'DELETE'
         })
             .then(res => {

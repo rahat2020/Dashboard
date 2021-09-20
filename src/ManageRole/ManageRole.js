@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import style from './ManageGroup.module.css';
+import style from './ManageRole.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserShield, faUser, faObjectGroup, faPlusCircle, faDownload, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons'
-export default function ManageGroup() {
-    const [addGroup, setAddgroup] = useState(true)
-    const [uploadGroup, setUploadGroup] = useState({
+export default function ManageRole() {
+    const [addAdmin, setAddadin] = useState(true)
+    const [edit, setEdit] = useState(true)
+    const [uploadAdmin, setUploadAdmin] = useState({
         name: '',
         date: '',
-        description: '',
+        email: '',
     })
     const [showUser, setShowUser] = useState([])
     // const [dltUser, setDltUser] = useState([])
 
     const handleChange = (event) => {
         console.log(event.target.name, event.target.value);
-        const newData = { ...uploadGroup }
+        const newData = { ...uploadAdmin }
         newData[event.target.name] = event.target.value;
-        setUploadGroup(newData);
+        setUploadAdmin(newData);
 
     }
 
-    const handleAddGroup = e => {
+    const handleAddAdmin = e => {
         // e.preventDefault(true);
-        if (uploadGroup !== '') {
+        if (uploadAdmin !== '') {
             // console.log(service)
-            const url = `http://localhost:5000/addGroup`
+            const url = `http://localhost:5000/addAdmin`
             console.log(url)
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(uploadGroup)
+                body: JSON.stringify(uploadAdmin)
             })
                 .then(response => response.json())
                 .then(data => {
@@ -43,15 +44,15 @@ export default function ManageGroup() {
     };
 
     useEffect(() => {
-        const url = 'https://salty-sierra-05084.herokuapp.com/showGroup'
+        const url = 'https://salty-sierra-05084.herokuapp.com/showAdmin'
         fetch(url)
             .then(response => response.json())
             .then(data => setShowUser(data))
     }, [])
 
     // delete user from userCollection
-    const handleDeleteGroup = (_id) => {
-        fetch(`https://salty-sierra-05084.herokuapp.com/deleteGroup/${_id}`, {
+    const handleDeleteAdmin = (_id) => {
+        fetch(`https://salty-sierra-05084.herokuapp.com/deleteAdmin/${_id}`, {
             method: 'DELETE'
         })
             .then(res => {
@@ -73,19 +74,19 @@ export default function ManageGroup() {
             <p className={style.userSummary}>Summary</p>
 
             {
-                addGroup ?
+                addAdmin ?
                     " "
                     :
                     <div className="container pt-4 mb-5">
                         <form class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" id="inputName" onBlur={handleChange} placeholder="Name" required />
+                                <input type="text" name="name" class="form-control" id="inputName" onBlur={handleChange} placeholder="Admin Name" required />
                             </div>
                             <div class="col-md-6">
                                 <input type="text" name="date" class="form-control" id="inputUserName" onBlur={handleChange} placeholder="Create date" required />
                             </div>
                             <div class="col-12">
-                                <input type="text" name="description" class="form-control" id="inputEmail" onBlur={handleChange} placeholder="description" required />
+                                <input type="text" name="email" class="form-control" id="inputEmail" onBlur={handleChange} placeholder="Admin email" required />
                             </div>
                             <div class="col-12">
                                 <div class="form-check">
@@ -96,12 +97,22 @@ export default function ManageGroup() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" onClick={handleAddGroup} className={style.user}>Upload</button>
+                                <button type="submit" onClick={handleAddAdmin} className={style.user}>Upload</button>
                             </div>
                         </form>
                     </div>
             }
 
+            {
+                edit ?
+                    " "
+                    :
+                    <div class="container">
+                        <div class="toast-body text-success">
+                            Hey, You want edit?😄 But I didn't implement that! sorry😟'.
+                        </div>
+                    </div>
+            }
             <div className="d-flex justify-content-evenly">
                 <div className={style.boxOne}>
                     <p><FontAwesomeIcon icon={faUserShield} className={style.icon} /> Admins</p>
@@ -122,10 +133,10 @@ export default function ManageGroup() {
                     <button className={style.button}><FontAwesomeIcon icon={faDownload} className={style.PDF} />Download PDF</button>
                 </div>
                 <div className="ms-auto">
-                    <button className={style.add} onClick={() => setAddgroup((user) => !user)}>
+                    <button className={style.add} onClick={() => setAddadin((user) => !user)}>
                         <FontAwesomeIcon icon={faPlusCircle} className={style.ADD} />
                         {
-                            addGroup ? <span> Add Group</span> : <span> Don't Add</span>
+                            addAdmin ? <span> Add Admin</span> : <span> Don't Add</span>
                         }
                     </button>
                 </div>
@@ -133,27 +144,32 @@ export default function ManageGroup() {
 
             {
                 showUser.map((group) => (
-                    <div id={style.table}>
+                    <div className="" id={style.table}>
                         <table class="table table-striped border-success">
                             <thead className={style.tableHead}>
                                 <tr className={style.tableRow}>
-                                    <th className="text-success" scope="col">Group ID</th>
-                                    <th className="text-success" scope="col">G.name</th>
-                                    <th className="text-success" scope="col">Group description</th>
+                                    <th className="text-success" scope="col">Admin ID</th>
+                                    <th className="text-success" scope="col">A.name</th>
+                                    <th className="text-success" scope="col">A.Email</th>
                                     <th className="text-success" scope="col">C. Date</th>
-                                    <th className="text-success"scope="col">Actions</th>
+                                    <th className="text-success" scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className={style.tableData}>
                                 <tr>
 
-                                    <td>{group._id}</td>
-                                    <td>{group.name}</td>
-                                    <td>{group.description}</td>
-                                    <td>12/12/21</td>
+                                    <td >{group._id}</td>
+                                    <td >{group.name}</td>
+                                    <td >{group.email}</td>
+                                    <td >12/12/21</td>
                                     <td className="d-flex justify-center-end">
-                                        <span className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faPen} className={style.edit} />edit </span>
-                                        <span onClick={() => handleDeleteGroup(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete
+                                        <span className="d-flex" id={style.edit} onClick={() => setEdit((hey) => !hey)}>
+                                            <FontAwesomeIcon icon={faPen} className={style.edit} />
+                                            {
+                                                addAdmin ? <span>Edit?</span> : <span>No!</span>
+                                            }
+                                        </span>
+                                        <span onClick={() => handleDeleteAdmin(group._id)} className="d-flex" id={style.edit}> <FontAwesomeIcon icon={faTrashAlt} className={style.delete} />delete
                                         </span>
                                     </td>
                                 </tr>

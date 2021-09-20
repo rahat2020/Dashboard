@@ -64,14 +64,12 @@ function App() {
                 <div className="d-flex align-items-center pt-4" id={style.Groups}>
                   <button className={(location.pathname === '/dashboard/manage-group') ? style.redBtn : style.greenBtn}>02</button>
                   <span className={style.user}>Manage Groups<br /> <small>let's you manage group</small></span>
-
                 </div>
               </Link>
               <Link to="/dashboard/manage-role">
                 <div className="d-flex align-items-center pt-4" id={style.roles}>
                   <button className={(location.pathname === '/dashboard/manage-role') ? style.redBtn : style.greenBtn}>03</button>
                   <span className={style.user}>Manage Roles<br /> <small>let's you manage role</small></span>
-
                 </div>
               </Link>
             </ul>
